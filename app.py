@@ -148,7 +148,6 @@ if uploaded_file is not None:
     )
 
     if selected_model == "Transfer Learning - Xception":
-      model_path = download_model()
       model = load_xception_model('largeModelFile/xception_model.weights.h5')
       img_size = (299, 299)
 
