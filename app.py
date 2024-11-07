@@ -17,7 +17,10 @@ from dotenv import load_dotenv
 import requests
 load_dotenv()
 
-genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
+# genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
+# Use Streamlit's secrets to get the API key
+api_key = st.secrets["GOOGLE_API_KEY"]
+genai.configure(api_key=api_key)
 
 output_dir = 'saliency_maps'
 os.makedirs(output_dir, exist_ok=True)
@@ -148,7 +151,7 @@ if uploaded_file is not None:
     )
 
     if selected_model == "Transfer Learning - Xception":
-      model = load_xception_model('/mount/src/braintumorclassification/xception_model.weights.h5')
+      model = load_xception_model('xception_model.weights.h5')
       img_size = (299, 299)
 
     else:
