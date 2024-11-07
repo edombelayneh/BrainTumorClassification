@@ -246,7 +246,7 @@ if uploaded_file is not None:
         )
 
     
-    saliency_map_path = f'saliency_map/{uploaded_file.name}'
+    saliency_map_path = f'{uploaded_file.name}'
     explanation = generate_explanation(saliency_map_path, result, prediction[0][class_index])
 
     st.write('## Explanation')
