@@ -14,7 +14,19 @@ import google.generativeai as genai
 import os
 import PIL.Image
 from dotenv import load_dotenv
+import requests
 load_dotenv()
+
+
+def download_model():
+    model_url = "https://github.com/edombelayneh/BrainTumorClassification/raw/main/xception_model.weights.h5"
+    model_path = "xception_model.weights.h5"
+    if not os.path.exists(model_path):
+        with requests.get(model_url, stream=True) as r:
+            with open(model_path, "wb") as f:
+                for chunk in r.iter_content(chunk_size=8192):
+                    f.write(chunk)
+    return model_path
 
 genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
 
@@ -147,7 +159,8 @@ if uploaded_file is not None:
     )
 
     if selected_model == "Transfer Learning - Xception":
-      model = load_xception_model('xception_model.weights.h5')
+      model_path = download_model()
+      model = load_xception_model(model_path)
       img_size = (299, 299)
 
     else:
