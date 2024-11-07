@@ -19,7 +19,7 @@ load_dotenv()
 
 # genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
 # Use Streamlit's secrets to get the API key
-api_key = st.secrets["GOOGLE_API_KEY"]
+api_key = st.secrets["GOOGLE_API_TOKEN"]
 genai.configure(api_key=api_key)
 
 output_dir = 'saliency_maps'
