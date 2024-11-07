@@ -104,7 +104,7 @@ def generate_saliency_map(model, img_array, class_index, img_size):
     with open(img_path, 'wb') as f:
       f.write(uploaded_file.getbuffer())
 
-    saliency_map_path = f'saliency_maps/{uploaded_file.name}'
+    saliency_map_path = f'saliency_map/{uploaded_file.name}'
 
     # save the saliency map
     cv2.imwrite(saliency_map_path, cv2.cvtColor(superimposed_img, cv2.COLOR_RGB2BGR))
@@ -246,7 +246,7 @@ if uploaded_file is not None:
         )
 
     
-    saliency_map_path = f'{uploaded_file.name}'
+    saliency_map_path = f'saliency_map/{uploaded_file.name}'
     explanation = generate_explanation(saliency_map_path, result, prediction[0][class_index])
 
     st.write('## Explanation')
