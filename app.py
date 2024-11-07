@@ -19,7 +19,7 @@ load_dotenv()
 
 
 def download_model():
-    model_url = "https://github.com/edombelayneh/BrainTumorClassification/raw/main/xception_model.weights.h5"
+    model_url = "https://github.com/edombelayneh/BrainTumorClassification/xception_model.weights.h5"
     model_path = "xception_model.weights.h5"
     if not os.path.exists(model_path):
         with requests.get(model_url, stream=True) as r:
