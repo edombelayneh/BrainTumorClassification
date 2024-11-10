@@ -27,20 +27,9 @@ This project aims to create a machine learning model capable of accurately class
 ## Steps and Some Preview
 
 - **Data Loading and Preprocessing:** The model begins by loading and preprocessing MRI brain scans. Images are resized, normalized, and augmented to enhance model generalization.
-  
-  <img width="500" alt="Data Loading" src="https://example.com/path-to-your-image" />
-
 - **Model Architecture:** A CNN-based architecture is used to extract features from MRI images, with layers fine-tuned to optimize for classification accuracy.
-  
-  <img width="500" alt="Model Architecture" src="https://example.com/path-to-your-image" />
-
 - **Training and Evaluation:** The model is trained on a dataset of labeled MRI scans, with metrics such as accuracy and loss tracked over epochs.
-  
-  <img width="500" alt="Training Progress" src="https://example.com/path-to-your-image" />
-
 - **Prediction:** The model outputs classifications on new MRI images, predicting the presence or absence of a tumor based on learned features.
-
-  <img width="500" alt="Sample Prediction" src="https://example.com/path-to-your-image" />
 
 ![Screenshot 2024-11-05 at 11 51 48 AM](https://github.com/user-attachments/assets/dd6d36df-5387-4108-bd28-09c4f416e920)
 ![Screenshot 2024-11-05 at 11 43 55 AM](https://github.com/user-attachments/assets/31d00913-437d-43d6-8972-2273acaab9bf)
