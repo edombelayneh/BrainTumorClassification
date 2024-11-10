@@ -42,12 +42,11 @@ This project aims to create a machine learning model capable of accurately class
 
   <img width="500" alt="Sample Prediction" src="https://example.com/path-to-your-image" />
 
-<img width="1440" alt="Screenshot 2024-11-05 at 11 40 04 AM" src="https://github.com/user-attachments/assets/297fb99b-cdbb-4441-b3b2-27a3a06178f4">
-<img width="1440" alt="Screenshot 2024-11-05 at 12 07 03 PM" src="https://github.com/user-attachments/assets/32183d2e-5411-4a96-9ca9-f39fc2f65449">
-<img width="1440" alt="Screenshot 2024-11-05 at 11 51 48 AM" src="https://github.com/user-attachments/assets/ff4c09d8-e43a-469c-bf28-4c6472c95f61">
-<img width="1440" alt="Screenshot 2024-11-05 at 11 43 55 AM" src="https://github.com/user-attachments/assets/e0bc297d-75b4-4310-9498-ed900d65ca08">
+![Screenshot 2024-11-05 at 11 51 48 AM](https://github.com/user-attachments/assets/dd6d36df-5387-4108-bd28-09c4f416e920)
+![Screenshot 2024-11-05 at 11 43 55 AM](https://github.com/user-attachments/assets/31d00913-437d-43d6-8972-2273acaab9bf)
+![Screenshot 2024-11-05 at 11 40 04 AM](https://github.com/user-attachments/assets/5ca3c27a-4d18-4a28-a757-eeb90966c75f)
+![Screenshot 2024-11-05 at 12 07 03 PM](https://github.com/user-attachments/assets/d3360432-8363-4fdf-b732-a04a8edb15c1)
 
-  
 
 ## To Execute
 
