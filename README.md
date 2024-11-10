@@ -3,7 +3,7 @@ Here's a README following your format for the brain tumor classification project
 ---
 
 # Brain Tumor Classification Project
-<img src="https://img.shields.io/badge/-Solo Project-29cf42?&style=for-the-badge&logoColor=white" />
+<img src="https://img.shields.io/badge/-Solo Project-red?&style=for-the-badge&logoColor=white" />
 
 ## Objective
 
