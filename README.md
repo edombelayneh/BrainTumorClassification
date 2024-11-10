@@ -1,7 +1,3 @@
-Here's a README following your format for the brain tumor classification project:
-
----
-
 # Brain Tumor Classification Project
 <img src="https://img.shields.io/badge/-Solo Project-f2336f?&style=for-the-badge&logoColor=white" />
 
@@ -45,6 +41,13 @@ This project aims to create a machine learning model capable of accurately class
 - **Prediction:** The model outputs classifications on new MRI images, predicting the presence or absence of a tumor based on learned features.
 
   <img width="500" alt="Sample Prediction" src="https://example.com/path-to-your-image" />
+
+<img width="1440" alt="Screenshot 2024-11-05 at 11 40 04 AM" src="https://github.com/user-attachments/assets/297fb99b-cdbb-4441-b3b2-27a3a06178f4">
+<img width="1440" alt="Screenshot 2024-11-05 at 12 07 03 PM" src="https://github.com/user-attachments/assets/32183d2e-5411-4a96-9ca9-f39fc2f65449">
+<img width="1440" alt="Screenshot 2024-11-05 at 11 51 48 AM" src="https://github.com/user-attachments/assets/ff4c09d8-e43a-469c-bf28-4c6472c95f61">
+<img width="1440" alt="Screenshot 2024-11-05 at 11 43 55 AM" src="https://github.com/user-attachments/assets/e0bc297d-75b4-4310-9498-ed900d65ca08">
+
+  
 
 ## To Execute
 
