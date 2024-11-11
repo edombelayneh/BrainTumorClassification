@@ -198,7 +198,7 @@ if uploaded_file is not None:
     st.write(f"Predicted Class: {result}")
     st.write("Predictions:")
     for label, prob in zip(labels, prediction[0]):
-      st.write(f"{label}: {prob:.4f}")
+      st.write(f"{label}: {prob * 100:.2f}")
 
 
     saliency_map = generate_saliency_map(model, img_array, class_index, img_size)
