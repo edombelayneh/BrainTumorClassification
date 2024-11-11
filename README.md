@@ -5,6 +5,8 @@
 
 This project aims to create a machine learning model capable of accurately classifying brain tumor images to support early diagnosis and treatment planning. I developed this project individually, focusing on deep learning techniques for image classification. The model leverages convolutional neural networks (CNNs) to classify medical imaging data into tumor and non-tumor categories, providing a streamlined, efficient diagnostic tool for healthcare applications.
 
+**To view the app, <a href="https://edom-braintumorclassification-mlmodels.streamlit.app/"> Click-here</a>.** 
+
 ### Skills Learned
 
 - Proficiency in Python programming and working with machine learning frameworks such as TensorFlow and Keras.
