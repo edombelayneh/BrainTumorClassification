@@ -142,18 +142,44 @@ def load_xception_model(path):
 
   return model
 
+def load_inception_model(path):
+  img_shape = (299, 299, 3)
+  base_model = tf.keras.applications.InceptionV3(include_top=True, weights="imagenet", input_shape=img_shape, pooling='max')
+
+  model = Sequential([
+      base_model,
+      Flatten(),
+      Dropout(rate=0.3),
+      Dense(128, activation='relu'),
+      Dropout(rate=0.25),
+      Dense(4, activation='softmax')
+  ])
+
+  model.build((None,) + img_shape)
+
+  model.compile(Adamax(learning_rate=0.01),
+                loss="categorical_crossentropy",
+                metrics=['accuracy', Precision(), Recall()])
+  model.load_weights(path)
+
+  return model
+
 if uploaded_file is not None:
     selected_model = st.radio(
         "Select a model:",
-        ("Transfer Learning - Xception", "Custom CNN")
+        ("Transfer Learning - Xception", "Transfer Learning - Inception", "Custom CNN")
     )
 
     if selected_model == "Transfer Learning - Xception":
-      model = load_xception_model('xception_model.weights.h5')
+      model = load_xception_model('/content/xception_model.weights.h5')
+      img_size = (299, 299)
+
+    elif selected_model == "Transfer Learning - Inception":
+      model = load_inception_model('/content/inception_model.weights.h5')
       img_size = (299, 299)
 
     else:
-      model = load_model('cnn_model.h5')
+      model = load_model('/content/cnn_model.h5')
       img_size = (224, 224)
 
 
