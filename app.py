@@ -198,8 +198,7 @@ if uploaded_file is not None:
     st.write(f"Predicted Class: {result}")
     st.write("Predictions:")
     for label, prob in zip(labels, prediction[0]):
-      prob = prob * 100
-      st.write(f"{label}: {prob:.2f}%")
+      st.write(f"{label}: {prob:.4f}%")
 
 
     saliency_map = generate_saliency_map(model, img_array, class_index, img_size)
@@ -230,7 +229,7 @@ if uploaded_file is not None:
               <div style="flex: 1; text-align: center;">
                   <h3 style="color: #ffffff; margin-bottom: 10px; font-size: 20px;">Confidence</h3>
                   <h3 style="font-size: 36px; font-weight: 800; color: #2196F3; margin: 0;">
-                      {prediction[0][class_index] :.4f}
+                      {prediction[0][class_index] * 100:.2f}%
                   </h3>
               </div>
           </div>
