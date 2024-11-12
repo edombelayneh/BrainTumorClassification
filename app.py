@@ -14,9 +14,6 @@ import google.generativeai as genai
 import os
 from mistralai import Mistral
 import PIL.Image
-from google.colab import userdata
-from dotenv import load_dotenv
-load_dotenv()
 
 genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
 
