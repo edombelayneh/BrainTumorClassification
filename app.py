@@ -248,11 +248,11 @@ with col[1]:
       )
 
       if selected_model == "Transfer Learning - Xception":
-        model = load_xception_model('/content/xception_model.weights.h5')
+        model = load_xception_model('xception_model.weights.h5')
         img_size = (299, 299)
 
       elif selected_model == "Transfer Learning - Inception":
-        model = load_inception_model('/content/inception_model.weights.h5')
+        model = load_inception_model('inception_model.weights.h5')
         img_size = (299, 299)
 
       else:
