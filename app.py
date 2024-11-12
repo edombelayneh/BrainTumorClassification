@@ -273,11 +273,6 @@ with col[1]:
       result = labels[class_index]
 
 
-      # st.write(f"Predicted Class: {result}")
-      # st.write("Predictions:")
-      # for label, prob in zip(labels, prediction[0]):
-      #   st.write(f"{label}: {prob:.4f}")
-
 with col[0]:
   if uploaded_file is not None:
     # Assuming prediction and labels are already defined
@@ -331,6 +326,13 @@ with col[1]:
   if uploaded_file is not None:
     # Generate the saliency map
     saliency_map = generate_saliency_map(model, img_array, class_index, img_size)
+      
+    # Display the two images side by side
+    col1, col2 = st.columns(2)
+    with col1:
+      st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
+    with col2:
+      st.image(saliency_map, caption="Saliency Map", use_column_width=True)
 
     result_container = st.container()
     result_container = st.container()
@@ -358,12 +360,6 @@ with col[1]:
       unsafe_allow_html=True
     )
 
-    # Display the two images side by side
-    col1, col2 = st.columns(2)
-    with col1:
-      st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
-    with col2:
-      st.image(saliency_map, caption="Saliency Map", use_column_width=True)
 
 with col[2]:
   if uploaded_file is not None:
