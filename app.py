@@ -1,3 +1,5 @@
+! pip install mistralai
+
 import streamlit as st
 import plotly.graph_objects as go
 import tensorflow as tf
