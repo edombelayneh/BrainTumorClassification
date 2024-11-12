@@ -256,7 +256,7 @@ with col[1]:
         img_size = (299, 299)
 
       else:
-        model = load_model('/content/cnn_model.h5')
+        model = load_model('cnn_model.h5')
         img_size = (224, 224)
 
 
