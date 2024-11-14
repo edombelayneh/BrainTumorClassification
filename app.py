@@ -15,9 +15,10 @@ import os
 from mistralai import Mistral
 import PIL.Image
 
-genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
+api_key = st.secrets["GOOGLE_API_TOKEN"]
+genai.configure(api_key=api_key)
 
-output_dir = 'saliency_maps'
+output_dir = 'saliency_map'
 os.makedirs(output_dir, exist_ok=True)
 
 def generate_explanation_gemini(img_path, model_prediction, confidence):
