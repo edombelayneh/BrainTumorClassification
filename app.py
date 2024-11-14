@@ -378,12 +378,10 @@ with col[2]:
       st.write(explanation)
     else:
       st.warning("Please select your user type before asking a question.")
-    
-    
 
+# Chat Interface
 with col[2]:
   if uploaded_file is not None:
-    # Chat interface
     st.write("## MRI Chat")
     user_type = st.radio("I am the:", ("Please select...", "Patient", "Doctor"))
 
@@ -395,26 +393,57 @@ with col[2]:
       # Chat Interface
       st.title("MRI Bot")
 
-      # initialize the chat history
-      if "messages" not in st.session_state:
-        intro_message = "Is there anything more you would like me to explain about the MRI Scan?"
-        st.session_state.messages = [{"role": "assistant", "content": intro_message}]
-      
-      # Display chat messages from history on app rerun
-      for message in st.session_state.messages:
-          with st.chat_message(message["role"]):
-              st.markdown(message["content"])
+      # Set up the chat container with a fixed height
+      with st.container():
+          st.markdown("""
+              <style>
+              .chat-container {
+                  height: 400px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: flex-end;
+                  overflow-y: auto;
+                  border: 1px solid #ccc;
+                  padding: 10px;
+              }
+              </style>
+          """, unsafe_allow_html=True)
 
-      # React to user input
-      if user_question := st.chat_input("Ask a follow question about the MRI scan"):
-        # Display user message in chat message container
-        st.chat_message("user").markdown(user_question)
-        # Add user message to chat history
-        st.session_state.messages.append({"role": "user", "content": user_question})
+          # Wrap chat messages in a container for custom styling
+          chat_container = st.empty()
+          with chat_container.container():
+              # initialize the chat history
+              if "messages" not in st.session_state:
+                  intro_message = "Is there anything more you would like me to explain about the MRI Scan?"
+                  st.session_state.messages = [{"role": "assistant", "content": intro_message}]
+              
+              # Display chat messages from history on app rerun
+              for message in st.session_state.messages:
+                  with st.chat_message(message["role"]):
+                      st.markdown(message["content"])
+              
+          # Pin chat_input to the bottom
+          user_question = st.chat_input("Ask a follow question about the MRI scan")
+          if user_question:
+              # Display user message in chat message container
+              st.session_state.messages.append({"role": "user", "content": user_question})
+              # chat_container.empty()  # Clear container to refresh chat
 
-        response = generate_chat_response_gemini(user_question, user_type, result, prediction[0][class_index], saliency_map_path)
-        # Display assistant response in chat message container
-        with st.chat_message("assistant"):
-            st.markdown(response)
-        # Add assistant response to chat history
-        st.session_state.messages.append({"role": "assistant", "content": response})   
+              with chat_container.container(height=400):
+                  for message in st.session_state.messages:
+                      with st.chat_message(message["role"]):
+                          st.markdown(message["content"])
+                  # Add new messages dynamically
+                  # st.chat_message("user").markdown(user_question)
+              
+                  # Display assistant response in chat message container
+                  with st.chat_message("assistant"):
+                      with st.spinner('Generating response...'):
+                          full_response = ''
+                          for response in generate_chat_response_gemini(user_question, user_type, result, prediction[0][class_index], saliency_map_path):
+                              full_response += response
+                              st.markdown(response)
+                          # st.markdown(full_response)
+
+                  # Add assistant response to chat history
+                  st.session_state.messages.append({"role": "assistant", "content": full_response})
