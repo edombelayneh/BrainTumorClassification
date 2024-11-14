@@ -116,7 +116,8 @@ def generate_chat_response_gemini(user_question, user_type, model_prediction, co
   model = genai.GenerativeModel(model_name="gemini-1.5-flash")
   response = model.generate_content([prompt, img])
 
-  return response.text
+  for chunk in response:
+    yield chunk.text
 
 
 # Saliency map -> the more cyan the picture the more focus it requires in that area
