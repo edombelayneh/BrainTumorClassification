@@ -506,7 +506,6 @@ with col[2]:
       explanation = ""
 
     if explanation != "":
-      with st.spinner('Generating report...'):
         # Generate and allow download of the report
         if "downloaded" not in st.session_state:
             st.session_state.downloaded = False
@@ -522,15 +521,17 @@ with col[2]:
                 saliency_map_path=saliency_map_path
             )
         with open(report_path, "rb") as f:
-          if st.download_button(
-            label="Download Report as PDF",
-            data=f,
-            file_name="Brain_Tumor_Classification_Report.pdf",
-            mime="application/pdf"
-          ):
-          
-            st.session_state.downloaded = True
-            st.session_state.show_message = True
+          with st.spinner('Generating report...'):
+              if st.download_button(
+                label="Download Report as PDF",
+                data=f,
+                file_name="Brain_Tumor_Classification_Report.pdf",
+                mime="application/pdf"
+              ):
+                
+              
+                st.session_state.downloaded = True
+                st.session_state.show_message = True
 
         if st.session_state.downloaded:
           st.success("The report has been successfully downloaded!")
