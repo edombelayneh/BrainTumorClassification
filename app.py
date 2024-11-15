@@ -512,16 +512,16 @@ with col[2]:
             st.session_state.show_message = False
 
         st.write("## Download Report")
+        with st.spinner('Generating report...'):
 
-        # Create a downloadable pdf that is a report on the findings
-        report_path = create_pdf_report(
-                prediction=prediction[0],
-                confidence=prediction[0][class_index],
-                result=result,
-                saliency_map_path=saliency_map_path
-            )
+            # Create a downloadable pdf that is a report on the findings
+            report_path = create_pdf_report(
+                    prediction=prediction[0],
+                    confidence=prediction[0][class_index],
+                    result=result,
+                    saliency_map_path=saliency_map_path
+                )
         with open(report_path, "rb") as f:
-          with st.spinner('Generating report...'):
               if st.download_button(
                 label="Download Report as PDF",
                 data=f,
