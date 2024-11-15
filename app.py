@@ -233,7 +233,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded")
 
-st.title('Brain Tumor Classification and Chat With MRI Bot')
+st.title('Brain Tumor Classification With MRI Bot')
 
 col = st.columns((1.5, 4.5, 2), gap='medium')
 
